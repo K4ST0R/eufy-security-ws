@@ -23,7 +23,8 @@
     "server": "node ./dist/bin/server.js -v -H 0.0.0.0",
     "client": "tsx ./src/bin/client.ts -v",
     "format": "prettier --write \"src/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.ts\""
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "prepare": "npm run build"
   },
   "author": {
     "name": "bropat",
