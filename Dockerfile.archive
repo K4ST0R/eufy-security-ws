@@ -1,0 +1,15 @@
+# eufy-security-ws (fork) — API WebSocket + déchiffrement inline des clips d'archive
+# ENC_EEC (via le fork eufy-security-client). À faire tourner À LA PLACE de l'add-on
+# eufy standard (une seule session par compte eufy).
+FROM node:20-bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY package.json package-lock.json* ./
+# installe le fork client (buildé auto via son script "prepare") + build le ws
+COPY . .
+RUN npm install --no-audit --no-fund && npm run build
+VOLUME ["/data"]
+EXPOSE 3000
+# config.json (compte eufy) dans /data
+CMD ["node", "dist/bin/server.js", "-c", "/data/config.json", "-H", "0.0.0.0", "-p", "3000"]
