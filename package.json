@@ -55,7 +55,7 @@
     "ansi-colors": "^4.1.3",
     "commander": "^15.0.0",
     "date-and-time": "^4.5.0",
-    "eufy-security-client": "github:K4ST0R/eufy-security-client#31eb24a",
+    "eufy-security-client": "github:K4ST0R/eufy-security-client#fc4bd75",
     "fs-extra": "^11.3.5",
     "tslog": "^4.9.3",
     "ws": "^8.21.0"
